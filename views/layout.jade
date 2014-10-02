@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+  body
+    .navbar.navbar-inverse.navbar-fixed-top
+        .navbar-inner: .container
+            .brand Contact manager
+            
+        
+    //-GUTS
+    block content
+        
+    script(type='text/javascript' src="/javascripts/vendor/jquery.js")
+    script(type='text/javascript' src="/javascripts/vendor/json2.js")
+    script(type='text/javascript' src="/javascripts/vendor/underscore.js")
+    script(type='text/javascript' src="/javascripts/vendor/backbone.js")
+    script(type='text/javascript' src="/javascripts/vendor/backbone.marionette.js")
+    script(type='text/javascript' src="/javascripts/app.js")
+    
