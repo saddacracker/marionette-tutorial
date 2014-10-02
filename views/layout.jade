@@ -22,17 +22,11 @@ html
     script(type='text/javascript' src="/javascripts/app.js")
     script(type='text/javascript' src="/javascripts/entities/contact.js")
     script(type='text/javascript' src="/javascripts/apps/contacts/list/list_view.js")
+    script(type='text/javascript' src="/javascripts/apps/contacts/list/list_controller.js")
     
     script(type='text/javascript').
         ContactManager.on("start",function(){ 
-            var contacts = ContactManager.request("contact:entities");
-    
-            // Marrionette collection view
-            var contactsListView = new ContactManager.ContactsApp.List.Contacts({
-                collection: contacts
-            });
-    
-            ContactManager.mainRegion.show(contactsListView);
+            ContactManager.ContactsApp.List.Controller.listContacts();
         });
 
         ContactManager.start();
