@@ -7,5 +7,5 @@ block content
         p Here is static content in the web page. You'll notice that it gets replaced by our app as soon as we start it.
                 
         //-template
-        script(type='text/template' id='static-template')
-            p This is text that was rendered by our Marionette app.
+        script(type='text/template' id='contact-list-item')
+            span <%- firstName %> <%- lastName %>
