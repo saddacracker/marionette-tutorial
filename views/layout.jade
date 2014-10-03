@@ -13,6 +13,17 @@ html
     //-GUTS
     block content
         
+    //-templates
+    script(type='text/template' id='contact-list')
+        thead: tr
+            th First Name
+            th Last Name
+        tbody
+        
+    script(type='text/template' id='contact-list-item')
+        td <%- firstName %>
+        td <%- lastName %>
+        
     script(type='text/javascript' src="/javascripts/vendor/jquery.js")
     script(type='text/javascript' src="/javascripts/vendor/json2.js")
     script(type='text/javascript' src="/javascripts/vendor/underscore.js")

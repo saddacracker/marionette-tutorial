@@ -1,10 +1,13 @@
-ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbone, Marionette, $, _){
+ContactManager.module("ContactsApp.List", function(List, ContactManager, 
+Backbone, Marionette, $, _){
     // M ItemView
     List.Contact = Marionette.ItemView.extend({ 
         template: "#contact-list-item",
-        tagName: "li",
+        tagName: "tr",
+        
+        // events
         events: {
-            "click span": "alertPhoneNumber",
+            "click td": "alertPhoneNumber",
         },
 
         alertPhoneNumber: function(){
@@ -12,9 +15,12 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
         }
     });
 
-    // M CollectionView
-    List.Contacts = Marionette.CollectionView.extend({ 
-        tagName: "ul",
-        childView: List.Contact
+    // Marionette Composite View is a more powerful version of Collection View that has a template
+    List.Contacts = Marionette.CompositeView.extend({ 
+        tagName: "table",
+        className: "table table-hover",
+        template: "#contact-list",
+        childView: List.Contact,
+        childViewContatiner: "tbody" // render child views in tbody
     });
 });

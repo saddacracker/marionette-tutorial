@@ -1,4 +1,5 @@
-ContactManager.module("Entities",function(Entities,ContactManager,Backbone,Marionette,$,_){
+ContactManager.module("Entities",function(Entities,ContactManager,
+Backbone,Marionette,$,_){
     
     // Model 
     Entities.Contact = Backbone.Model.extend({
