@@ -17,14 +17,13 @@ Backbone, Marionette, $, _){
             // alert(this.model.escape("phoneNumber"));
             e.preventDefault();
             this.$el.toggleClass("warning");
+            this.trigger("contact:highlight", this.model);
         },
         
         deleteClicked: function(e){
             e.stopPropagation();            
             // Broadcast your request to teh controller / views shouldn't handle this logic
             this.trigger("contact:delete", this.model);
-            
-            
         },
         
         alertContents: function(e){
@@ -32,7 +31,7 @@ Backbone, Marionette, $, _){
             alert($item.text());
         },
         
-        // Called automatically:
+        // Override ItemView.remove()
         remove: function() {
             var self = this;
             this.$el.fadeOut(function(){
@@ -52,6 +51,13 @@ Backbone, Marionette, $, _){
         className: "table table-hover",
         template: "#contact-list",
         childView: List.Contact,
-        childViewContatiner: "tbody" // render child views in tbody
+        childViewContatiner: "tbody", // render child views in tbody
+        
+        // WAT? Magic corresponding method from child view
+        onChildviewContactDelete: function(){
+            this.$el.fadeOut(250, function() {
+                $(this).fadeIn(250);
+            });
+        }
     });
 });

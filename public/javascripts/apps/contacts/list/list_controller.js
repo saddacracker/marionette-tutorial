@@ -20,6 +20,10 @@ Backbone, Marionette, $, _){
                 contacts.remove(model);
             });
             
+            contactsListView.on("childview:contact:highlight", function(childView, model){
+                console.log(model.attributes.firstName);
+            });
+            
             // Drop that shit into the region liek a boss
             ContactManager.mainRegion.show(contactsListView);
         }
