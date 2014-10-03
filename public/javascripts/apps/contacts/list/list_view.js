@@ -7,11 +7,19 @@ Backbone, Marionette, $, _){
         
         // events
         events: {
-            "click td": "alertPhoneNumber",
+            "click": "highlightName",
+            "click td": "alertContents"
         },
 
-        alertPhoneNumber: function(){
-            alert(this.model.escape("phoneNumber"));
+        highlightName: function(e){
+            // alert(this.model.escape("phoneNumber"));
+            e.preventDefault();
+            this.$el.toggleClass("warning");
+        },
+        
+        alertContents: function(e){
+            var $item = $(e.target);
+            alert($item.text());
         }
     });
 
