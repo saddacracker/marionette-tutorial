@@ -13,7 +13,10 @@ Backbone, Marionette, $, _){
             });
             
             // Listen for stuff on the List View
+            // 
+            // Arguments: <childView>, <parameters>
             contactsListView.on("childview:contact:delete", function(childView, model){
+                // alert("childView reference: " + childView.template + " argument passed: " + model.id)
                 contacts.remove(model);
             });
             

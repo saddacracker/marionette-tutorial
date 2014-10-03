@@ -20,17 +20,28 @@ Backbone, Marionette, $, _){
         },
         
         deleteClicked: function(e){
-            e.stopPropagation();
-            // alert("some shit was deleted. psych");
-            
+            e.stopPropagation();            
             // Broadcast your request to teh controller / views shouldn't handle this logic
             this.trigger("contact:delete", this.model);
-            // alert(this.model.id);
+            
+            
         },
         
         alertContents: function(e){
             var $item = $(e.target);
             alert($item.text());
+        },
+        
+        // Called automatically:
+        remove: function() {
+            var self = this;
+            this.$el.fadeOut(function(){
+                // Basically calls the original remove function as if
+                // we hadn't redefined it.  This way the original remove 
+                // code will clean upo as necessary.
+                Marionette.ItemView.prototype.remove.call(self);
+            });
+            
         }
     });
 
