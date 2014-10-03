@@ -18,11 +18,16 @@ html
         thead: tr
             th First Name
             th Last Name
+            th
         tbody
         
     script(type='text/template' id='contact-list-item')
         td <%- firstName %>
         td <%- lastName %>
+        td
+            button.btn.btn-small.js-delete
+                i.icon-remove 
+                | Delete
         
     script(type='text/javascript' src="/javascripts/vendor/jquery.js")
     script(type='text/javascript' src="/javascripts/vendor/json2.js")

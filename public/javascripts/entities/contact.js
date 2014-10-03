@@ -1,14 +1,15 @@
 ContactManager.module("Entities",function(Entities,ContactManager,
 Backbone,Marionette,$,_){
     
-    // Model 
+    // Model defaults
     Entities.Contact = Backbone.Model.extend({
         defaults: {
             firstName: ""
         }
     });
     
-    // Collection
+    // Create a collection 
+    // Do any sorting or magic before page load, here
     Entities.ContactCollection = Backbone.Collection.extend({
         model: Entities.Contact,
         // sort by multiple fields
@@ -20,6 +21,7 @@ Backbone,Marionette,$,_){
         }
     });
     
+    // Initialize contacts / fetch
     var contacts;
     
     var initializeContacts = function(){ 
@@ -44,7 +46,7 @@ Backbone,Marionette,$,_){
         }
     };
     
-    // request-response
+    // Listen for a request from the controller
     ContactManager.reqres.setHandler("contact:entities", function(){ 
         return API.getContactEntities();
     });
