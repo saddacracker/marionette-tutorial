@@ -8,27 +8,24 @@ Backbone, Marionette, $, _){
         // Listeners
         events: {
             "click": "highlightName",
-            "click button.js-delete": "deleteClicked"
-            // "click td": "alertContents"
+            "click button.js-delete": "deleteClicked",
+            "click td a.js-show": "showClicked"
         },
         
         // Events Handlers
         highlightName: function(e){
-            // alert(this.model.escape("phoneNumber"));
-            e.preventDefault();
             this.$el.toggleClass("warning");
             this.trigger("contact:highlight", this.model);
         },
-        
+        showClicked: function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            this.trigger("contact:show", this.model);
+        },
         deleteClicked: function(e){
             e.stopPropagation();            
             // Broadcast your request to teh controller / views shouldn't handle this logic
             this.trigger("contact:delete", this.model);
-        },
-        
-        alertContents: function(e){
-            var $item = $(e.target);
-            alert($item.text());
         },
         
         // Override ItemView.remove()
@@ -53,11 +50,11 @@ Backbone, Marionette, $, _){
         childView: List.Contact,
         childViewContatiner: "tbody", // render child views in tbody
         
-        // WAT? Magic corresponding method from child view
+        // WAT? A magic method?
         onChildviewContactDelete: function(){
-            this.$el.fadeOut(250, function() {
-                $(this).fadeIn(250);
-            });
+            // this.$el.fadeOut(250, function() {
+            //     $(this).fadeIn(250);
+            // });
         }
     });
 });

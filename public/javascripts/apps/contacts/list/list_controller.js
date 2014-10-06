@@ -13,8 +13,11 @@ Backbone, Marionette, $, _){
             });
             
             // Listen for stuff on the List View
-            // 
-            // Arguments: <childView>, <parameters>
+            contactsListView.on("childview:contact:show", function(childView, model){
+                // Call the Show View
+                ContactManager.ContactsApp.Show.Controller.showContact(model);
+            });
+
             contactsListView.on("childview:contact:delete", function(childView, model){
                 // alert("childView reference: " + childView.template + " argument passed: " + model.id)
                 contacts.remove(model);
@@ -23,6 +26,7 @@ Backbone, Marionette, $, _){
             contactsListView.on("childview:contact:highlight", function(childView, model){
                 console.log(model.attributes.firstName);
             });
+            
             
             // Drop that shit into the region liek a boss
             ContactManager.mainRegion.show(contactsListView);
