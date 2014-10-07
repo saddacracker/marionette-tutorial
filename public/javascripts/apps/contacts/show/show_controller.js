@@ -3,8 +3,9 @@ Backbone, Marionette, $, _){
     
     
     Show.Controller = {
-        showContact: function(model) {
-            
+        showContact: function(id) {
+            var contacts = ContactManager.request("contact:entities");
+            var model = contacts.get(id);
             // Instantiate teh conatct view
             var contactView = new Show.Contact({
                model: model 

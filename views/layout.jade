@@ -25,7 +25,7 @@ html
         td <%- firstName %>
         td <%- lastName %>
         td
-            a(href="#").btn.btn-small.js-show
+            a(href!="#contacs/<%- id %>").btn.btn-small.js-show
                 i.icon-eye-open 
                 | Show
             button.btn.btn-small.js-delete
@@ -33,9 +33,9 @@ html
                 | Delete
                 
     script(type='text/template' id='contact-view')
+        p: a(href="#contacts").btn.js-list-contacts &#8592; Contacts
         h1 <%- firstName %> <%- lastName %>
-        p 
-            strong Phone number: 
+        p: strong Phone number: 
             <%- phoneNumber %>
         
     script(type='text/javascript' src="/javascripts/vendor/jquery.js")
@@ -46,8 +46,10 @@ html
     //- App
     script(type='text/javascript' src="/javascripts/app.js")
     script(type='text/javascript' src="/javascripts/entities/contact.js")
-    script(type='text/javascript' src="/javascripts/apps/contacts/list/list_view.js")
+    
+    script(type='text/javascript' src="/javascripts/apps/contacts/contacts_app.js")
     script(type='text/javascript' src="/javascripts/apps/contacts/list/list_controller.js")
+    script(type='text/javascript' src="/javascripts/apps/contacts/list/list_view.js")
     script(type='text/javascript' src="/javascripts/apps/contacts/show/show_controller.js")
     script(type='text/javascript' src="/javascripts/apps/contacts/show/show_view.js")
     

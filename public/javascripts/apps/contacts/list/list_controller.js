@@ -15,7 +15,8 @@ Backbone, Marionette, $, _){
             // Listen for stuff on the List View
             contactsListView.on("childview:contact:show", function(childView, model){
                 // Call the Show View
-                ContactManager.ContactsApp.Show.Controller.showContact(model);
+                // ContactManager.ContactsApp.Show.Controller.showContact(model);
+                ContactManager.trigger("contact:show", model.get("id"));
             });
 
             contactsListView.on("childview:contact:delete", function(childView, model){

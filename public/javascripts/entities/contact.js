@@ -32,8 +32,8 @@ Backbone,Marionette,$,_){
                 phoneNumber: "555-0163" },
             {   id: 3, firstName: "Charlie", lastName: "Campbell",
                 phoneNumber: "555-0129" },
-            {   id: 3, firstName: "Charlie", lastName: "Campbell",
-                phoneNumber: "555-0129" }
+            {   id: 4, firstName: "Snoop", lastName: "Dogg",
+                phoneNumber: "555-1234" }
         ]);
     };
     
